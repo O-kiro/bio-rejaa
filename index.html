@@ -17,25 +17,55 @@
       a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; }
       .page-break { page-break-before: always; }
     }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      0%,100% { box-shadow: 0 0 10px #22c55e; }
+      50% { box-shadow: 0 0 20px #22c55e; }
+    }
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
   </style>
 </head>
 <body class="bg-gradient-to-b from-emerald-50 to-white text-slate-800 dark:from-slate-900 dark:to-slate-950 dark:text-slate-100">
+
   <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-emerald-100/70 dark:border-slate-800">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-900/60 border-b border-emerald-100/70 dark:border-slate-800 hover:shadow-xl transition-all duration-500 animate-fadeInUp">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="font-extrabold text-xl tracking-tight">Anatomi Tumbuhan</a>
+      <a href="#top" class="font-extrabold text-xl tracking-tight hover:text-emerald-600 transition-all duration-300">Anatomi Tumbuhan</a>
       <nav class="hidden md:flex gap-6 text-sm font-semibold">
-        <a href="#ringkasan" class="hover:text-emerald-600">Ringkasan</a>
-        <a href="#organ" class="hover:text-emerald-600">Organ</a>
-        <a href="#jaringan" class="hover:text-emerald-600">Jaringan</a>
-        <a href="#tabel" class="hover:text-emerald-600">Tabel</a>
-        <a href="#sumber" class="hover:text-emerald-600">Sumber</a>
+        <a href="#ringkasan" class="hover:text-emerald-600 transition-all duration-300 hover:scale-105">Ringkasan</a>
+        <a href="#organ" class="hover:text-emerald-600 transition-all duration-300 hover:scale-105">Organ</a>
+        <a href="#jaringan" class="hover:text-emerald-600 transition-all duration-300 hover:scale-105">Jaringan</a>
+        <a href="#tabel" class="hover:text-emerald-600 transition-all duration-300 hover:scale-105">Tabel</a>
+        <a href="#sumber" class="hover:text-emerald-600 transition-all duration-300 hover:scale-105">Sumber</a>
       </nav>
       <div class="no-print flex items-center gap-2">
-        <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-700">Cetak / PDF</button>
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold shadow hover:bg-emerald-700 hover:scale-110 hover:animate-[glow_1.5s_infinite] transition-all duration-500">Cetak / PDF</button>
       </div>
     </div>
   </header>
+
+  <!-- Tambahkan efek animasi hover pada semua card -->
+  <style>
+    section article, section div.p-5 {
+      transition: all 0.5s ease;
+    }
+    section article:hover, section div.p-5:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(16,185,129,0.3);
+    }
+    table tbody tr {
+      transition: background 0.3s ease;
+    }
+    table tbody tr:hover {
+      background-color: rgba(16,185,129,0.08);
+    }
+  </style>
+<body class="bg-gradient-to-b from-emerald-50 to-white text-slate-800 dark:from-slate-900 dark:to-slate-950 dark:text-slate-100">
+  <!-- Header -->
+  
 
   <!-- Hero -->
   <section id="top" class="relative overflow-hidden">
@@ -272,7 +302,7 @@
       <h2 class="text-2xl md:text-3xl font-extrabold">Catatan & Sumber</h2>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Materi ini diringkas dari buku biologi SMA dan referensi lain dan telah disesuaikan dengan bahasa yang mudah dipahami</p>
       <div class="mt-4 text-xs text-slate-500">
-        <p>Dibuat oleh: <span class="font-semibold">Reza</span> — Project: "Anatomi Tumbuhan"</p>
+        <p>Dibuat oleh: <span class="font-semibold">Rex</span> — Project: "Anatomi Tumbuhan"</p>
         <p>Versi: 1.0 • Cetak tombol di kanan atas untuk PDF.</p>
       </div>
     </div>
